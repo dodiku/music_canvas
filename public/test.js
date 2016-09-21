@@ -171,7 +171,7 @@ OnsetDetect.prototype.display = function(x,y) {
 }
 
 OnsetDetect.prototype.update = function(fftObject) {
-    this.energy = fftObject.getEnergy(this.f1,this.f2)/255;
+    this.energy = fftObject. gy(this.f1,this.f2)/255;
 
     if(this.isDetected == false){
         if (this.energy-this.penergy > this.treshold){

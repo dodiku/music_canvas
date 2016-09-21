@@ -3,23 +3,43 @@
 
 var song, amp, fft;
 
-var amplitude; // will be used to set up the SPEED of the drawing
+var amplitude, normAmp; // will be used to set up the SPEED of the drawing
 var beat; // will be used ot set up the BRUSH SIZE & to change DIRECTION on peaks
-var color; // will be used to set up the COLOR of the brush
+var color, normColor; // will be used to set up the COLOR of the brush
 
 var pAmp, pBeat, pColor = 0; // for the printData function
 
+var brushStroke;
+var brushSize;
+var color;
+var location;
+
+
+var colorScale = d3.scaleLinear()
+                .domain([0, 10000])
+                .range([0,255]);
+
+var ampScale = d3.scaleLinear()
+                .domain([0, 1])
+                .range([0,255]);
+
 
 function setup() {
-  createCanvas(400, 400);
-  song = loadSound("tunes/Moonage_Daydream.mp3", songLoaded, songError, songLoading);
+  createCanvas(600, 600);
+  background(255);
+  // song = loadSound("tunes/radiohead.mp3", songLoaded, songError, songLoading);
+  // song = loadSound("tunes/Moonage_Daydream.mp3", songLoaded, songError, songLoading);
+  // song = loadSound("tunes/Under_Stars.mp3", songLoaded, songError, songLoading);
+  // song = loadSound("tunes/Houses_of_the_Holy.mp3", songLoaded, songError, songLoading);
+  song = loadSound("tunes/Hours.mp3", songLoaded, songError, songLoading);
+
   amp = new p5.Amplitude();
   fft = new p5.FFT();
 }
 
 
 function draw() {
-  // smooth();
+  smooth();
 
   // amplitude
   amplitude = amp.getLevel();
@@ -40,8 +60,24 @@ function draw() {
     console.log('color: ' + color);
   }
 
-  background(30, 132, 133, 4);
-  ellipse(200,200,beat);
+  normColor = colorScale(color);
+  // console.log(normColor);
+
+  normAmp = ampScale(amplitude);
+
+  // background(220);
+  // ellipse(200,200,beat);
+
+  var brushStroke = random(0, 20);
+  var brushSize = beat/5;
+  var color1 = random(1, 255);
+	var color2 = random(1, 255);
+	var color3 = random(1, 255);
+	var location1 = random(1, 800);
+	var location2 = random(1, 800);
+	noStroke();
+	fill(normColor, normColor/2, normAmp);
+	ellipse(location1, location2, brushSize);
 
 }
 

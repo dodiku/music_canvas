@@ -67,21 +67,21 @@ function printData(value){
     pBeat = 1;
     pColor = 1;
   }
-  if (value == 'amplitude'){
+  else if (value == 'amplitude'){
     pAmp = 1;
   }
-  if (value == 'beat'){
+  else if (value == 'beat'){
     pBeat = 1;
   }
-  if (value == 'color'){
+  else if (value == 'color'){
     pColor = 1;
   }
-  if (value == 'stop'){
+  else if (value == 'stop'){
     pAmp = 0;
     pBeat = 0;
     pColor = 0;
   }
-  if (value == 'help'){
+  else if (value == 'help'){
     console.log("to view all data: printData('all')");
     console.log("to view amplitude data: printData('apmlitude')");
     console.log("to view beat data: printData('beat')");

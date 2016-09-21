@@ -4,7 +4,7 @@
 var song, amp, fft;
 
 var amplitude, normAmp; // will be used to set up the SPEED of the drawing
-var beat; // will be used ot set up the BRUSH SIZE & to change DIRECTION on peaks
+var beat, normBeat; // will be used ot set up the BRUSH SIZE & to change DIRECTION on peaks
 var color, normColor; // will be used to set up the COLOR of the brush
 
 var pAmp, pBeat, pColor = 0; // for the printData function
@@ -23,10 +23,15 @@ var ampScale = d3.scaleLinear()
                 .domain([0, 1])
                 .range([0,255]);
 
+var beatScale = d3.scaleLinear()
+                .domain([0, 300])
+                .range([0,30]);
+
 
 function setup() {
-  createCanvas(600, 600);
+  var canvas = createCanvas(600, 600);
   background(255);
+  canvas.parent('place_canvas');
   // song = loadSound("tunes/radiohead.mp3", songLoaded, songError, songLoading);
   // song = loadSound("tunes/Moonage_Daydream.mp3", songLoaded, songError, songLoading);
   // song = loadSound("tunes/Under_Stars.mp3", songLoaded, songError, songLoading);
@@ -45,6 +50,7 @@ function draw() {
   amplitude = amp.getLevel();
   if (pAmp == 1){
     console.log('amplitude: ' + amplitude);
+    console.log('normAmp: ' + normAmp);
   }
 
   // beat
@@ -52,12 +58,14 @@ function draw() {
   beat = fft.getEnergy('lowMid'); // could be also fft.getEnergy('bass')
   if (pBeat == 1){
     console.log('beat: ' + beat);
+    console.log('normBeat: ' + normBeat);
   }
 
   // color
   color = fft.getCentroid();
   if (pColor == 1){
     console.log('color: ' + color);
+    console.log('normColor: ' + normColor);
   }
 
   normColor = colorScale(color);
@@ -65,11 +73,13 @@ function draw() {
 
   normAmp = ampScale(amplitude);
 
+  normBeat = beatScale(beat);
+
   // background(220);
   // ellipse(200,200,beat);
 
   var brushStroke = random(0, 20);
-  var brushSize = beat/5;
+  var brushSize = normBeat;
   var color1 = random(1, 255);
 	var color2 = random(1, 255);
 	var color3 = random(1, 255);

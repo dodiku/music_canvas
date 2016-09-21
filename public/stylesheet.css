@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #F6F6F6;
+  font-family: arial, sans-serif
+}
+
+body{
+  margin:0px;
+}
+
+footer {
+  position: absolute;
+  left:0;
+  /*min-height: 85px;*/
+  width: 100%;
+  margin-top: 48px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color:white;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: #979797;
+  text-align: center;
+}
+
+.footer_text {
+  line-height: 64px;
+  font-size: 13px;
+  font-weight: 300;
+  display: block;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  background-color: pink;
+  margin-bottom: 56px;
+  left:0;
+  top:0;
+}
+
+.container {
+  background-color: red;
+  margin: auto;
+}
+
+.songs {
+  background-color: blue;
+  min-width: 100px;
+  min-height: 100px;
+  display: inline-block;
+  margin-right: 56px;
+  vertical-align: top;
+
+}
+
+.canvas {
+  background-color: green;
+  width: 600px;
+  height: 600px;
+  display: inline-block;
+}
+
+.tune {
+  background-color: #FFF796;
+  height: 60px;
+  width: 320px;
+  margin-bottom: 24px;
+}

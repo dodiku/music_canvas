@@ -38,17 +38,23 @@ footer {
   height: 100px;
   background-color: pink;
   margin-bottom: 56px;
-  left:0;
-  top:0;
+  padding-top: 32px;
+  color: white;
+  text-align: center;
+}
+
+.title {
+  font-size: 30px;
 }
 
 .container {
-  background-color: red;
+  /*background-color: red;*/
   margin: auto;
+  text-align: center;
 }
 
 .songs {
-  background-color: blue;
+  /*background-color: blue;*/
   min-width: 100px;
   min-height: 100px;
   display: inline-block;
@@ -69,4 +75,69 @@ footer {
   height: 60px;
   width: 320px;
   margin-bottom: 24px;
+}
+
+.tune:hover{
+  background-color: #FFDDB8;
+  cursor: pointer;
+}
+
+.tune:active{
+  background-color: #F9A03F;
+  cursor: pointer;
+}
+
+.artwork {
+  width:40px;
+  height: 40px;
+  background-color: gray;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+#artwork1 {
+  background-image: url('images/jb_ziggystardust.jpg');
+  background-size: 40px 40px;
+}
+
+#artwork2 {
+  background-image: url('images/in-rainbows2.jpg');
+  background-size: 40px 40px;
+}
+
+#artwork3 {
+  background-image: url('images/Led_Zeppelin_-_Houses_of_the_Holy.jpg');
+  background-size: 40px 40px;
+}
+
+#artwork4 {
+  background-image: url('images/artworks-000009968431-9li5ae-t500x500.jpg');
+  background-size: 40px 40px;
+}
+
+#artwork5 {
+  background-image: url('images/Apollo+Atmospheres++Soundtracks+Apollo+Atmospheres++Soundtrack.png');
+  background-size: 40px 40px;
+}
+
+.song_name {
+  width: 202px;
+  /*background-color: white;*/
+  /*height: 60px;*/
+  line-height: 18px;
+  display: inline-block;
+  font-size: 12px;
+  text-align: left;
+  margin-top: 12px;
+  vertical-align: top;
+  margin-left: 6px;
+  color: #F9A03F;
+}
+
+.play_button {
+  width:30px;
+  height: 30px;
+  margin-right: 18px;
+  margin-bottom: 15px;
+  display: inline-block;
 }

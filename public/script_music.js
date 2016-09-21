@@ -1,67 +1,51 @@
-// change direction according to
+// many thanks to b2renger from https://github.com/processing/p5.js-sound/issues/34
+// and all the guys from P5.js
 
 var song, amp, fft;
-var pAmp = 0; // to be cleaned
-var pEnergy = 0; // to be cleaned
 
+var amplitude; // will be used to set up the SPEED of the drawing
+var beat; // will be used ot set up the BRUSH SIZE & to change DIRECTION on peaks
+var color; // will be used to set up the COLOR of the brush
 
+var pAmp, pBeat, pColor = 0; // for the printData function
 
-function printAmp(value){
-  if (value == 'on'){
-    pAmp = 1;
-  }
-  else {
-    pAmp = 0;
-  }
-}
-
-function printEnergy(value){
-  if (value == 'on'){
-    pEnergy = 1;
-  }
-  else {
-    pEnergy = 0;
-    }
-  }
-
-function getData(){
-  console.log('waveform() -- ');
-  console.log(fft.waveform());
-
-  var ana = fft.analyze();
-  console.log('analyze() -- ');
-  console.log(ana);
-  console.log('getEnergy() -- ');
-  // ana = ana.getEnergy();
-  // console.log(ana);
-  console.log(fft.getEnergy('bass'));
-  // console.log(fft.analyze().getEnergy('bass'));
-  console.log('getCentroid() -- ');
-  console.log(fft.getCentroid());
-  console.log('smooth() -- ');
-  // console.log(fft.smooth());
-  // console.log('end analysis');
-}
 
 function setup() {
   createCanvas(400, 400);
-  song = loadSound("tunes/Moonage_Daydream.mp3", songLoaded, songError, songLoading);
+  song = loadSound("tunes/radiohead.mp3", songLoaded, songError, songLoading);
   amp = new p5.Amplitude();
   fft = new p5.FFT();
 }
 
+
 function draw() {
-  background(30, 132, 133, 4);
-  smooth();
+  // smooth();
+
+  // amplitude
+  amplitude = amp.getLevel();
   if (pAmp == 1){
-    console.log(amp.getLevel());
+    console.log('amplitude: ' + amplitude);
   }
-  if (pEnergy == 1){
-    fft.analyze();
-    console.log(fft.getEnergy('lowMid'));
+
+  // beat
+  fft.analyze();
+  beat = fft.getEnergy('lowMid'); // could be also fft.getEnergy('bass')
+  if (pBeat == 1){
+    console.log('beat: ' + beat);
   }
-  ellipse(200,200,fft.getEnergy('bass'));
+
+  // color
+  color = fft.getCentroid();
+  if (pColor == 1){
+    console.log('color: ' + color);
+  }
+
+  background(30, 132, 133, 4);
+  ellipse(200,200,beat);
+
 }
+
+
 
 function songLoaded (){
   console.log('loaded successfuly');
@@ -74,4 +58,43 @@ function songError (){
 
 function songLoading (){
   console.log('loading...');
+}
+
+
+function printData(value){
+  if (value == 'all') {
+    pAmp = 1;
+    pBeat = 1;
+    pColor = 1;
+  }
+  if (value == 'amplitude'){
+    pAmp = 1;
+  }
+  if (value == 'beat'){
+    pBeat = 1;
+  }
+  if (value == 'color'){
+    pColor = 1;
+  }
+  if (value == 'stop'){
+    pAmp = 0;
+    pBeat = 0;
+    pColor = 0;
+  }
+  if (value == 'help'){
+    console.log("to view all data: printData('all')");
+    console.log("to view amplitude data: printData('apmlitude')");
+    console.log("to view beat data: printData('beat')");
+    console.log("to view color data: printData('color')");
+    console.log("to stop all views: printData('stop')");
+  }
+  else {
+    console.log('-- incorrect input --');
+    console.log("to view all data: printData('all')");
+    console.log("to view amplitude data: printData('apmlitude')");
+    console.log("to view beat data: printData('beat')");
+    console.log("to view color data: printData('color')");
+    console.log("to stop all views: printData('stop')");
+    console.log("to view help: printData('help')");
+  }
 }

@@ -1,19 +1,27 @@
-console.log('script_music');
-
-function preload() {
-  song = loadSound("tunes/radiohead.mp3");
-  // mySound = loadSound("https://upload.wikimedia.org/wikipedia/commons/b/bb/Test_ogg_mp3_48kbps.wav");
-
-}
+var song, amp;
+// var amplitude = new Amplitude();
 
 function setup() {
   createCanvas(400, 400);
-  // mySound.setVolume(0.1);
-  song.play();
+  song = loadSound("tunes/Moonage_Daydream.mp3", songLoaded, songError, songLoading);
+  amp = new p5.Amplitude();
 }
 
 function draw() {
   background(30, 132, 133, 4);
   smooth();
-  // mySound.play();
-  }
+  console.log(amp.getLevel());
+}
+
+function songLoaded (){
+  console.log('loaded successfuly');
+  song.play();
+}
+
+function songError (){
+  console.log('there was a problem loading the tune...');
+}
+
+function songLoading (){
+  console.log('loading...');
+}

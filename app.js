@@ -23,7 +23,6 @@ var port = process.env.PORT || 3000;
 // ROUTERS
 // *************************
 app.get('/', function(req, res){
-  console.log('user enters..');
   res.render('index');
 });
 

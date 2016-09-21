@@ -12,7 +12,7 @@ var pAmp, pBeat, pColor = 0; // for the printData function
 
 function setup() {
   createCanvas(400, 400);
-  song = loadSound("tunes/radiohead.mp3", songLoaded, songError, songLoading);
+  song = loadSound("tunes/Moonage_Daydream.mp3", songLoaded, songError, songLoading);
   amp = new p5.Amplitude();
   fft = new p5.FFT();
 }

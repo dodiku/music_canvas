@@ -26,6 +26,10 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
+app.get('/draw', function(req, res){
+  res.render('draw');
+});
+
 app.get("*", function(req, res){
 	res.send('Ooops.. nothing here.');
 });

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Music Canvas</title>
+        <meta charset = "UTF-8" />
+        <meta name="viewport" content="width=device-width">
+        <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+        <link type="text/css" rel="stylesheet" href="normalize.css" />
+        <link href="http://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="https://afeld.github.io/emoji-css/emoji/tropical_fish.png">
+
+    </head>
+
+    <body>
+      <div class="header">
+        <span class="title">music canvas</span>
+        <div id="pacman">
+        </div>
+      </div>
+      <div class="container">
+        <div class="songs">
+          <div class="tune" id="tune1">
+            <div class="artwork" id="artwork1">
+            </div>
+            <div class="song_name" id="name1">
+              <span style="font-weight: bold;">David Bowie</span></br>
+              <span>Moonage Daydream</span>
+            </div>
+            <div class="play_button" id="button1">
+            </div>
+          </div>
+
+          <div class="tune" id="tune2">
+            <div class="artwork" id="artwork2">
+            </div>
+            <div class="song_name" id="name2">
+              <span style="font-weight: bold;">Radiohead</span></br>
+              <span>Reckoner</span>
+            </div>
+            <div class="play_button" id="button2">
+            </div>
+          </div>
+
+          <div class="tune" id="tune3">
+            <div class="artwork" id="artwork3">
+            </div>
+            <div class="song_name" id="name3">
+              <span style="font-weight: bold;">Led Zepplin</span></br>
+              <span>Houses of the Holy</span>
+            </div>
+            <div class="play_button" id="button3">
+            </div>
+          </div>
+
+          <div class="tune" id="tune4">
+            <div class="artwork" id="artwork4">
+            </div>
+            <div class="song_name" id="name4">
+              <span style="font-weight: bold;">Tycho</span></br>
+              <span>Hours</span>
+            </div>
+            <div class="play_button" id="button4">
+            </div>
+          </div>
+
+          <div class="tune" id="tune5">
+            <div class="artwork" id="artwork5">
+            </div>
+            <div class="song_name" id="name5">
+              <span style="font-weight: bold;">Brian Eno</span></br>
+              <span>Under Stars</span>
+            </div>
+            <div class="play_button" id="button5">
+            </div>
+          </div>
+        </div>
+        <!-- <button type="button" id="downloadLnk" download="YourFileName.jpg">SAVE PAINTING</button> -->
+
+
+        <div class="canvas" id="place_canvas">
+        </div>
+
+        <div class="description">
+          drawing style is being modified accoring to the playing song beats, amlitude, and tone.
+        </div>
+        <a id="downloadLnk" download="YourFileName.jpg">Download your Painting</a>
+      </div>
+
+
+      <script src="d3/d3.js" type="text/JavaScript"></script>
+      <script language="javascript" type="text/javascript" src="script_music_draw.js"></script>
+      <script language="javascript" type="text/javascript" src="p5/p5.min.js"></script>
+      <script language="javascript" type="text/javascript" src="p5/p5.dom.js"></script>
+      <script language="javascript" type="text/javascript" src="p5/p5.sound.min.js"></script>
+      <script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+
+
+      <footer>
+        <span class="footer_text">Built and designed by <a class="footer" href="http://www.linkedin.com/in/drorayalon" target= _blank>Dror Ayalon</a> and <a class="footer" href="http://www.linkedin.com/in/sharifhadidi" target= _blank>Sharif Hadidi</a> with <a href="http://itp.nyu.edu" target= _blank> <i class="em em-purple_heart"></i></a>, September 2016.</span>
+        <span class="footer_text">This is a school project. If you are the copyright holder of any of songs, and you want it removed, send an email to dda290-[at]-nyu-[dot]-edu, and it will be removed immediately.
+      </footer>
+
+
+    </body>
+
+</html>

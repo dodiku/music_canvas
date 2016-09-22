@@ -1,3 +1,5 @@
+// Created by Dror Ayalon & Sharif Hadidi
+//
 // many thanks to b2renger from https://github.com/processing/p5.js-sound/issues/34
 // and all the guys from P5.js
 
@@ -18,7 +20,7 @@ var currentlyPlaying = 1;
 
 
 var colorScale = d3.scaleLinear()
-                .domain([0, 10000])
+                .domain([0, 8000])
                 .range([0,255]);
 
 var ampScale = d3.scaleLinear()
@@ -97,7 +99,6 @@ function playSong (value){
   }
 }
 
-
 function draw() {
   smooth();
 
@@ -132,10 +133,11 @@ function draw() {
   var color1 = random(1, 255);
 	var color2 = random(1, 255);
 	var color3 = random(1, 255);
-	var location1 = random(1, 800);
+	var location1 = random(1, 1200);
 	var location2 = random(1, 800);
 	noStroke();
 	fill(normColor, normColor/2, normAmp);
+  // fill(normColor, normColor/2, normBeat);
 	ellipse(location1, location2, brushSize);
 
 }
@@ -210,6 +212,12 @@ function songLoading (value){
   pacman.style("background-size", "30px 30px");
 }
 
+
+function download() {
+	var dt = canvas.toDataURL('image/jpeg');
+	this.href = dt;
+}
+downloadLnk.addEventListener('click', download, false);
 
 
 // === print function ===

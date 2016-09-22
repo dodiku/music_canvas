@@ -10,7 +10,7 @@ var app = express();
 app.set("views", __dirname + '/views');
 app.engine('.html', require('ejs').__express);
 app.set('view engine', 'html');
-app.use(express.static( __dirname + '/public' ));
+app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 3000;
 
@@ -22,11 +22,11 @@ var port = process.env.PORT || 3000;
 // *************************
 // ROUTERS
 // *************************
-app.get('/', function(req, res){
-  res.render('index');
+app.get('/', function (req, res) {
+	res.render('index');
 });
 
-app.get("*", function(req, res){
+app.get("*", function (req, res) {
 	res.send('Ooops.. nothing here.');
 });
 
